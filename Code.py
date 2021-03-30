@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
 #author:阿狸
 import requests
-import time
+import time,os
 from datetime import datetime
 
 class Course:
     def __init__(self):
+        self.load_config()
         self.session = requests.Session()
         self.headers = {
             'Host': 'aic.hbswkj.com:8080',
@@ -16,14 +17,15 @@ class Course:
         now_time = time.strftime("%Y-%m-%d %H:%M:%S",localtime)
         print('当前时间：'+now_time)
 
-    def trylogin(self,username,password):
+    def trylogin(self):
+
             res= self.session.post("http://aic.hbswkj.com:8080/jedu/login.do",{
-                "username":username,
-                "password":password
+                "username":self.username,
+                "password":self.password
             },headers=self.headers).json()
             self.isLogin = res["success"]
             if res["success"]:
-                self.session.cookies.set('username',username)
+                self.session.cookies.set('username',self.username)
                 time.sleep(0.2)
                 self.session.get("http://aic.hbswkj.com:8080/jedu/index.do",headers=self.headers).content
             return self.isLogin
@@ -85,9 +87,21 @@ class Course:
         初始化的时候接受两个参数，分别为账号和密码
 
         '''
-        self.trylogin('1905080101', '1905080101a')
+        self.trylogin()
         self.get_course_info()
         self.print_course()
+
+    def load_config(self):
+        try:
+            file_name = [i for i in os.listdir(os.path.dirname(__file__)) if '.txt' in i][0]
+            data = [i for i in open(file_name,'r',encoding = 'utf-8').read().split(',')]
+            username = data[0]
+            password = data[1]
+            self.username = username;self.password = password
+
+
+        except:
+            print("未找到配置文件")
             
 
 if __name__ =='__main__':
