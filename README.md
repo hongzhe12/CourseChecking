@@ -30,6 +30,7 @@
 ①直接输入 `python ~/CourseChecking/Code.py`
 
 ②先切到项目路径下("CourseChecking"文件夹下)输入 `./Code.py`
+>第二种方法如果启动报错请给文件权限`chmod 777 Code.py`
 
 <br>
 
