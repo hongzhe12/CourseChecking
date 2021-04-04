@@ -94,7 +94,9 @@ class Course:
 
     def load_config(self):
         try:
-            file_name = [i for i in os.listdir(os.path.dirname(__file__)) if '.txt' in i][0]
+            #file_name = [i for i in os.listdir(os.path.dirname(__file__)) if '.txt' in i][0]
+            
+            file_name = os.path.dirname(__file__) + "\config.txt"
             file = open(file_name, 'r', encoding='utf-8')
             data = [i for i in file.read().split(',')]
             username = data[0]
@@ -108,9 +110,3 @@ class Course:
 
 if __name__ =='__main__':
     Course().main()
-
-    
-
-        
-
-        
