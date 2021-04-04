@@ -18,7 +18,7 @@
 
 ①编辑文件 vi,vim工具均可(windows的大家都会用,不再介绍)
 
-②直接使用命令写入  `echo "username,password" > config.txt`
+②直接使用命令写入  `echo "username,password" > ~/CourseChecking/config.txt`
 
 <br>
 <br>
@@ -29,8 +29,8 @@
 
 ①直接输入 `python ~/CourseChecking/Code.py`
 
-②先切到项目路径下("CourseChecking"文件夹下)输入 `./Code.py`
->第二种方法如果启动报错请给文件权限`chmod 777 Code.py`
+②直接输入 `~/CourseChecking/Code.py`
+>第二种方法如果启动报错请给文件权限`chmod 777 ~/CourseChecking/Code.py`
 
 <br>
 
