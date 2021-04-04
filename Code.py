@@ -1,6 +1,3 @@
-#!/usr/bin/python
-# -*- coding: utf-8 -*-
-#author:阿狸
 import requests
 import time,os
 from datetime import datetime
@@ -65,9 +62,7 @@ class Course:
 
     def print_course(self,weekofday = str(datetime.today().isoweekday())):
         '''
-
         此函数接收一个0~7的参数(str类型),用于查询一个星期的某一天课表，默认参数为当天。
-
         '''
 
         info = self.get_course_info()
@@ -84,9 +79,7 @@ class Course:
 
     def main(self):
         '''
-
         初始化的时候接受两个参数，分别为账号和密码
-
         '''
         self.trylogin()
         self.get_course_info()
@@ -96,7 +89,7 @@ class Course:
         try:
             #file_name = [i for i in os.listdir(os.path.dirname(__file__)) if '.txt' in i][0]
             
-            file_name = os.path.dirname(__file__) + "\config.txt"
+            file_name = os.path.dirname(__file__).replace("\\","/") + "/config.txt"
             file = open(file_name, 'r', encoding='utf-8')
             data = [i for i in file.read().split(',')]
             username = data[0]
