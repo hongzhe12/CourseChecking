@@ -61,3 +61,7 @@
 
 
 >最后注意,使用前请检查weeks参数是否为当前周.
+
+<br>
+<br>
+小白教程移步这里 [Termux查课](https://blog.csdn.net/qq_17802895/article/details/115335960)
